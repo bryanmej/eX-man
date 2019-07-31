@@ -1,23 +1,21 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-import '../App.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import "../App.css";
 
 function Home() {
-  return(
+  return (
     <div className="home">
       <div className="home-container text-center">
         <h1>Welcome to eX-man your expense manager app</h1>
-        <p><u>Keep track of where your money is going it's easy as 1, 2, 3...</u></p>
+        <p>
+          <u>Keep track of where your money is going it's easy as 1, 2, 3...</u>
+        </p>
         <Link to="/signup">
-          <span className="btn btn-primary">Sign up</span>
-        </Link>
-        <Link to="/login">
-          <span className="btn btn-success">Login</span>
+          <span className="btn btn-secondary">Sign up</span>
         </Link>
       </div>
     </div>
-   
-  )
+  );
 }
 
-export default Home
+export default Home;

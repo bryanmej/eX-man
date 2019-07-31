@@ -34,7 +34,6 @@ function AllExpenses(props) {
         <td>{exps.name}</td>
         <td>{exps.price}</td>
         <td>
-          <button className="btn btn-warning">Edit</button>
           <button
             className="btn btn-danger"
             onClick={() => {
@@ -57,26 +56,26 @@ function AllExpenses(props) {
 
   return (
     <div>
-      <div className="container">
-        <div className="jumbotron">
-          <h1 className="display-4 text-white">
-            Your total for this month: {`$ ${total}`}
-          </h1>
-          <p className="lead">
-            This is a simple hero unit, a simple jumbotron-style component for
-            calling extra attention to featured content or information.
-          </p>
-          <hr className="my-4" />
-          <p>
-            It uses utility classes for typography and spacing to space content
-            out within the larger container.
-          </p>
-          <button onClick={toggle} className="btn btn-info">
-            Add an expense
-          </button>
-        </div>
+      <div className="jumbotron text-white">
+        <h1 className="display-4">
+          Your total for this month: <b>{`$ ${total}`}</b>
+        </h1>
+        <p className="lead">
+          This is a simple hero unit, a simple jumbotron-style component for
+          calling extra attention to featured content or information.
+        </p>
+        <hr className="my-4" />
+        <p>
+          It uses utility classes for typography and spacing to space content
+          out within the larger container.
+        </p>
+        <button onClick={toggle} className="btn btn-info">
+          Add an expense
+        </button>
       </div>
+
       <CreateExpense />
+
       <table className="table table-dark table-striped">
         <tbody>
           <tr>

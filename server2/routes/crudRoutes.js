@@ -1,13 +1,23 @@
-const express = require('express')
-const router = express.Router()
-const {createExpense, getAllexpenses, deleteExpense, updateExpense} = require('../controllers/crudControllers')
+const express = require("express");
+const router = express.Router();
+const {
+  createExpense,
+  getAllexpenses,
+  deleteExpense,
+  updateExpense,
+  createReminder
+} = require("../controllers/crudControllers");
 
-router.post('/expense', createExpense)
+//Expense
+router.post("/expense", createExpense);
 
-router.get('/expense', getAllexpenses)
+router.get("/expense", getAllexpenses);
 
-router.delete('/expense/:id', deleteExpense)
+router.delete("/expense/:id", deleteExpense);
 
-router.patch('/expense/:id', updateExpense)
+router.patch("/expense/:id", updateExpense);
 
-module.exports = router
+//Reminder
+router.post("/reminder", createReminder);
+
+module.exports = router;

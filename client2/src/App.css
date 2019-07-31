@@ -1,5 +1,7 @@
-.home, .signup, .login {
-  background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+.home,
+.signup,
+.login {
+  background: url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
   background-size: cover;
   height: 92vh;
   padding-top: 10%;
@@ -10,10 +12,10 @@
   width: 50%;
   margin: 0 auto;
   padding: 3%;
-  
 }
 
-.sign-form, .login-form {
+.sign-form,
+.login-form {
   background: rgba(221, 221, 221, 0.6);
   width: 50%;
   margin: 0 auto;
@@ -23,7 +25,7 @@
 }
 
 div.jumbotron {
-  background: url('https://images.unsplash.com/photo-1486607303850-bc051a4ffad4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80');
+  background: url("https://images.unsplash.com/photo-1486607303850-bc051a4ffad4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -32,7 +34,7 @@ div.jumbotron {
 }
 
 div.form-group {
-  margin: 0
+  margin: 0;
 }
 
 .exp-form {
@@ -42,6 +44,11 @@ div.form-group {
 
 span.btn {
   width: 30%;
+  font-size: 1.2em;
+}
+
+button.btn.btn-info {
+  font-size: 1.2em;
 }
 
 .display {

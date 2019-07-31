@@ -1,18 +1,15 @@
-import React, {Component} from 'react'
+import React, { Component } from "react";
 
-import AllExpenses from './AllExpenses';
-
+import AllExpenses from "./AllExpenses";
 
 class Profile extends Component {
-
-  render(){
-    return(
-      <div> 
-        <AllExpenses/>
+  render() {
+    return (
+      <div>
+        <AllExpenses />
       </div>
-    )
+    );
   }
 }
 
-export default Profile
-
+export default Profile;
