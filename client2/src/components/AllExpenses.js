@@ -44,7 +44,7 @@ function AllExpenses(props) {
         <td>{exps.price}</td>
         <td>
           <button
-            className="btn btn-danger"
+            className="btn btn-outline-warning"
             onClick={() => {
               axios
                 .delete(`http://localhost:3000/expense/${exps._id}`)
@@ -67,21 +67,20 @@ function AllExpenses(props) {
     <div>
       <div className="jumbotron text-white">
         <h1 className="display-4">
-          Your total for this month: <b>{`$ ${total}`}</b>
+          Your total for this month:
+          <span className="total font-weight-bold">{` $ ${total}`}</span>
         </h1>
         <p className="lead">
-          This is a simple hero unit, a simple jumbotron-style component for
-          calling extra attention to featured content or information.
+          This is a simple web app to help you keep track how you are spending
+          your money, how much of it you are spending and will help you remember
+          important things.
         </p>
         <hr className="my-4" />
-        <p>
-          It uses utility classes for typography and spacing to space content
-          out within the larger container.
-        </p>
-        <button onClick={toggle} className="btn btn-info">
+        <p>Click on a button to add an expense to the list or a reminder</p>
+        <button onClick={toggle} className="btn btn-info mr-3">
           Add an expense
         </button>
-        <button onClick={toggle2} className="btn btn-secondary">
+        <button onClick={toggle2} className="btn btn-purple">
           Add a reminder
         </button>
       </div>
@@ -91,8 +90,8 @@ function AllExpenses(props) {
       <CreateReminder />
 
       <div className="row">
-        <div className="col-7 pr-0">
-          <table className="table table-dark table-striped">
+        <div className="col-md-7 pr-0">
+          <table className="table table-dark table-striped mb-0">
             <tbody>
               <tr>
                 <th>#</th>
@@ -105,7 +104,7 @@ function AllExpenses(props) {
           </table>
         </div>
 
-        <div className="col-5 pl-0">
+        <div className="col-md-5 pl-0">
           <AllReminders />
         </div>
       </div>

@@ -33,6 +33,13 @@ div.jumbotron {
   border-radius: 0;
 }
 
+.total {
+  background: #343a40;
+  padding: 1% 2% 1% 1%;
+  border-radius: 2em;
+  border: 2px solid rgb(0, 205, 0);
+}
+
 div.form-group {
   margin: 0;
 }
@@ -53,15 +60,37 @@ span.btn {
   font-size: 1.2em;
 }
 
-button.btn.btn-info,
-button.btn.btn-secondary {
+button.btn.btn-info {
   font-size: 1.2em;
+}
+
+button.btn.btn-purple {
+  background: #6f42c1;
+  font-size: 1.2em;
+  color: white;
+}
+
+button.btn.btn-purple:hover {
+  background: #5b34a4;
 }
 
 input[type="date"] {
   width: 20%;
 }
 
+.col-md-7,
+.col-md-5 {
+  overflow: scroll;
+  height: 430px;
+}
+
 .display {
   display: none;
+}
+
+@media (max-width: 950px) {
+  .total {
+    display: block;
+    width: 60%;
+  }
 }

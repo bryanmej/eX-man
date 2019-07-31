@@ -21,10 +21,27 @@ function AllReminders() {
   const listReminders = rems.map((rems, i) => {
     return (
       <tr key={i}>
-        <td>
+        <td className="pl-4">
           {rems.date}
           <br />
           {rems.reminder}
+        </td>
+        <td>
+          <button
+            className="btn btn-outline-danger"
+            onClick={() => {
+              axios
+                .delete(`http://localhost:3000/reminder/${rems._id}`)
+                .then(({ data }) => {
+                  setReminders(prevState => {
+                    return prevState.filter(e => e._id !== data.reminder._id);
+                  });
+                })
+                .catch(err => console.log(err));
+            }}
+          >
+            Delete
+          </button>
         </td>
       </tr>
     );
@@ -34,7 +51,9 @@ function AllReminders() {
     <table className="table table-striped">
       <tbody>
         <tr>
-          <th>Reminders:</th>
+          <th className="pl-4" colSpan="2">
+            Reminders:
+          </th>
         </tr>
         {listReminders}
       </tbody>

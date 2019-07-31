@@ -2,6 +2,7 @@ const Expense = require("../models/Expense");
 const Reminder = require("../models/Reminder");
 
 // Expense
+
 exports.createExpense = (req, res, next) => {
   const { name, price } = req.body;
   const newExpense = new Expense({
@@ -33,14 +34,8 @@ exports.deleteExpense = (req, res, next) => {
     .catch(err => res.status(500).json({ err }));
 };
 
-exports.updateExpense = (req, res, next) => {
-  const { id } = req.params;
-  Expense.findByIdAndUpdate(id, { ...req.body }, { new: true })
-    .then(exp => res.status(200).json({ exp }))
-    .catch(err => res.status(500).json({ err }));
-};
-
 //Reminder
+
 exports.createReminder = (req, res, next) => {
   const { date, reminder } = req.body;
   const newReminder = new Reminder({
@@ -62,5 +57,14 @@ exports.createReminder = (req, res, next) => {
 exports.getAllReminders = (req, res, next) => {
   Reminder.find()
     .then(rems => res.status(200).json({ rems }))
+    .catch(err => res.status(500).json({ err }));
+};
+
+exports.deleteReminder = (req, res, next) => {
+  const { id } = req.params;
+  Reminder.findByIdAndDelete(id)
+    .then(reminder =>
+      res.status(200).json({ reminder, msg: "reminder deleted" })
+    )
     .catch(err => res.status(500).json({ err }));
 };
