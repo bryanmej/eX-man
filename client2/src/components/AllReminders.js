@@ -6,7 +6,7 @@ function AllReminders() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/reminder")
+      .get("https://exman007.herokuapp.com/reminder")
       .then(({ data }) => {
         setReminders(prevState => {
           return [...prevState, ...data.rems];
@@ -31,7 +31,7 @@ function AllReminders() {
             className="btn btn-outline-danger"
             onClick={() => {
               axios
-                .delete(`http://localhost:3000/reminder/${rems._id}`)
+                .delete(`https://exman007.herokuapp.com/reminder/${rems._id}`)
                 .then(({ data }) => {
                   setReminders(prevState => {
                     return prevState.filter(e => e._id !== data.reminder._id);

@@ -3,7 +3,7 @@ import useForm from "./hooks/useForm";
 import AuthService from "./services/Service";
 import "../App.css";
 
-function CreateExpense() {
+function CreateExpense(props) {
   const service = new AuthService();
   const [form, handleInputs] = useForm();
   const createExp = () => {
@@ -11,6 +11,7 @@ function CreateExpense() {
       .createExpense(form)
       .then(response => {
         console.log(response);
+        props.history.push("/profile");
       })
       .catch(err => {
         console.log(err);

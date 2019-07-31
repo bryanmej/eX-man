@@ -10,7 +10,7 @@ function AllExpenses(props) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/expense")
+      .get("https://exman007.herokuapp.com/expense")
       .then(({ data }) => {
         setExpenses(prevState => {
           return [...prevState, ...data.exps];
@@ -47,7 +47,7 @@ function AllExpenses(props) {
             className="btn btn-outline-warning"
             onClick={() => {
               axios
-                .delete(`http://localhost:3000/expense/${exps._id}`)
+                .delete(`https://exman007.herokuapp.com/expense/${exps._id}`)
                 .then(({ data }) => {
                   setExpenses(prevState => {
                     return prevState.filter(e => e._id !== data.expense._id);
