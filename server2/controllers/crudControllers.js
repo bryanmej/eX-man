@@ -49,12 +49,18 @@ exports.createReminder = (req, res, next) => {
   });
   newReminder
     .save()
-    .then(exp => {
-      res.status(201).json(exp);
+    .then(rem => {
+      res.status(201).json(rem);
     })
     .catch(err => {
       res
         .status(500)
         .json({ message: "There was a problem creating the reminder" });
     });
+};
+
+exports.getAllReminders = (req, res, next) => {
+  Reminder.find()
+    .then(rems => res.status(200).json({ rems }))
+    .catch(err => res.status(500).json({ err }));
 };

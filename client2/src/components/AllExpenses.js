@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CreateExpense from "./CreateExpense";
+import CreateReminder from "./CreateReminder";
+import AllReminders from "./AllReminders";
 import "../App.css";
 
 function AllExpenses(props) {
@@ -19,15 +21,22 @@ function AllExpenses(props) {
       });
   }, []);
 
+  // Total of all expenses
   const total = exps.reduce((acc, obj) => {
     return acc + obj.price;
   }, 0);
 
+  // Toggle forms
   const toggle = () => {
     document.querySelector(".exp-form").classList.toggle("display");
   };
 
-  const all = exps.map((exps, i) => {
+  const toggle2 = () => {
+    document.querySelector(".rem-form").classList.toggle("display");
+  };
+
+  // Display all expenses
+  const listExpenses = exps.map((exps, i) => {
     return (
       <tr key={exps._id}>
         <td>{i + 1}</td>
@@ -72,21 +81,34 @@ function AllExpenses(props) {
         <button onClick={toggle} className="btn btn-info">
           Add an expense
         </button>
+        <button onClick={toggle2} className="btn btn-secondary">
+          Add a reminder
+        </button>
       </div>
 
       <CreateExpense />
 
-      <table className="table table-dark table-striped">
-        <tbody>
-          <tr>
-            <th>#</th>
-            <th>Name:</th>
-            <th>Amount:</th>
-            <th />
-          </tr>
-          {all}
-        </tbody>
-      </table>
+      <CreateReminder />
+
+      <div className="row">
+        <div className="col-7 pr-0">
+          <table className="table table-dark table-striped">
+            <tbody>
+              <tr>
+                <th>#</th>
+                <th>Name:</th>
+                <th>Amount:</th>
+                <th />
+              </tr>
+              {listExpenses}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="col-5 pl-0">
+          <AllReminders />
+        </div>
+      </div>
     </div>
   );
 }

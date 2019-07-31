@@ -3,12 +3,12 @@ import useForm from "./hooks/useForm";
 import AuthService from "./services/Service";
 import "../App.css";
 
-function CreateExpense() {
+function CreateReminder() {
   const service = new AuthService();
   const [form, handleInputs] = useForm();
-  const createExp = () => {
+  const createRem = () => {
     service
-      .createExpense(form)
+      .createReminder(form)
       .then(response => {
         console.log(response);
       })
@@ -19,18 +19,18 @@ function CreateExpense() {
 
   return (
     <div className="form-group">
-      <form className="exp-form display" onSubmit={createExp}>
-        <label>Name of expense:</label>
+      <form className="rem-form display" onSubmit={createRem}>
+        <label>Date:</label>
         <input
-          type="text"
-          name="name"
+          type="date"
+          name="date"
           className="form-control"
           onChange={e => handleInputs(e)}
         />
-        <label>Amount:</label>
+        <label>Reminder/Comment</label>
         <input
-          type="text"
-          name="price"
+          type="textarea"
+          name="reminder"
           className="form-control"
           onChange={e => handleInputs(e)}
         />
@@ -41,4 +41,4 @@ function CreateExpense() {
   );
 }
 
-export default CreateExpense;
+export default CreateReminder;

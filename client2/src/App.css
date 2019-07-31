@@ -38,6 +38,12 @@ div.form-group {
 }
 
 .exp-form {
+  background: #343a40;
+  color: white;
+  padding: 3% 7%;
+}
+
+.rem-form {
   background: rgba(221, 221, 221, 0.6);
   padding: 3% 7%;
 }
@@ -47,8 +53,13 @@ span.btn {
   font-size: 1.2em;
 }
 
-button.btn.btn-info {
+button.btn.btn-info,
+button.btn.btn-secondary {
   font-size: 1.2em;
+}
+
+input[type="date"] {
+  width: 20%;
 }
 
 .display {
