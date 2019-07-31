@@ -29,6 +29,13 @@ class AuthService {
       .catch(err => console.log(err));
   }
 
+  logout() {
+    return this.service
+      .post("/logout")
+      .then(response => console.log(response))
+      .catch(err => console.log(err));
+  }
+
   createExpense(data) {
     return this.service
       .post("/expense", data)
