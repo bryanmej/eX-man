@@ -12,7 +12,6 @@ function CreateExpense(props) {
       .createExpense(form)
       .then(response => {
         console.log(response);
-        props.history.push("/profile");
       })
       .catch(err => {
         console.log(err);
