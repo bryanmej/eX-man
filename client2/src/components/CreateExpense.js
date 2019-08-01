@@ -20,12 +20,7 @@ function CreateExpense(props) {
 
   return (
     <div className="form-group">
-      <form
-        className="exp-form display"
-        name="expense"
-        method="post"
-        onSubmit={createExp}
-      >
+      <form className="exp-form display" name="expense" onSubmit={createExp}>
         <input type="hidden" name="expense" value="expense" />
         <label>Name of expense:</label>
         <input
