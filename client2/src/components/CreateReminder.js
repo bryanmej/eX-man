@@ -12,6 +12,7 @@ function CreateReminder() {
       .createReminder(form)
       .then(response => {
         console.log(response);
+        window.location.reload();
       })
       .catch(err => {
         console.log(err);

@@ -6,7 +6,7 @@ import "./App.css";
 import Home from "./components/Home";
 import "bootstrap/dist/css/bootstrap.css";
 import Login from "./components/Login";
-import AllExpenses from "./components/AllExpenses";
+import Profile from "./components/Profile";
 
 function Router() {
   return (
@@ -16,7 +16,7 @@ function Router() {
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/profile" component={AllExpenses} />
+        <Route exact path="/profile" component={Profile} />
       </Switch>
     </div>
   );

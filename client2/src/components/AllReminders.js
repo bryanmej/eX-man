@@ -4,6 +4,7 @@ import axios from "axios";
 function AllReminders() {
   const [rems, setReminders] = useState([]);
 
+  // Get all reminders
   useEffect(() => {
     axios
       .get("https://exman007.herokuapp.com/reminder")
@@ -17,7 +18,7 @@ function AllReminders() {
       });
   }, []);
 
-  //display all reminders
+  // Display all reminders
   const listReminders = rems.map((rems, i) => {
     return (
       <tr key={i}>
