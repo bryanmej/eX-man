@@ -14,7 +14,7 @@ router.post("/login", passport.authenticate("local"), login);
 
 router.post("/logout", logout);
 
-router.get("/profile", profile);
+router.get("/profile", isLogged, profile);
 
 function isLogged(req, res, next) {
   if (!req.isAuthenticated())

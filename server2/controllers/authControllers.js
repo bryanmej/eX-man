@@ -1,6 +1,6 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
-const passport = require("passport");
+const passport = require("../configs/passport");
 
 // Sign up
 
@@ -65,9 +65,5 @@ exports.logout = (req, res, next) => {
 };
 
 exports.profile = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    res.status(200).json(req.user);
-    return;
-  }
-  res.status(403).json({ message: "Unauthorized" });
+  res.status(200).json(req.user);
 };

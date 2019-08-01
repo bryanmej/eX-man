@@ -12,6 +12,7 @@ const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
 
+// Connection to Data Base
 mongoose
   .connect(
     "mongodb+srv://bryanmej:Jackass123!@cluster0-0upwv.mongodb.net/test?retryWrites=true&w=majority",
@@ -33,43 +34,21 @@ const debug = require("debug")(
 
 const app = express();
 
-// Middleware Setup
-app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-
-// Express View engine setup
-
-app.use(
-  require("node-sass-middleware")({
-    src: path.join(__dirname, "public"),
-    dest: path.join(__dirname, "public"),
-    sourceMap: true
-  })
-);
-
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "hbs");
-app.use(express.static(path.join(__dirname, "public")));
-//app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
-
+// Session
 app.use(
   session({
-    secret: "verySecret",
+    secret: "S3cr3t",
+    saveUninitialized: true,
     resave: true,
-    saveUninitialized: true
+    cookie: { maxAge: 1000 * 60 * 60 * 24 }
   })
 );
 
-// USE passport.initialize() and passport.session() HERE:
+// Passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-// default value for title local
-app.locals.title = "Express - Generated with IronGenerator";
-
-// ADD CORS SETTINGS HERE TO ALLOW CROSS-ORIGIN INTERACTION:
+// CORS SETTINGS TO ALLOW CROSS-ORIGIN INTERACTION:
 app.use(
   cors({
     credentials: true,
@@ -77,8 +56,22 @@ app.use(
   })
 );
 
-// ROUTES MIDDLEWARE STARTS HERE:
+// Middleware Setup
+app.use(logger("dev"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
+// Express View engine setup
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "hbs");
+app.use(express.static(path.join(__dirname, "public")));
+//app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+
+// default value for title local
+app.locals.title = "Express - Generated with IronGenerator";
+
+// ROUTES MIDDLEWARE STARTS HERE:
 const index = require("./routes/authRoutes");
 app.use("/", index);
 
