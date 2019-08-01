@@ -6,6 +6,7 @@ import "../App.css";
 function CreateExpense(props) {
   const service = new AuthService();
   const [form, handleInputs] = useForm();
+
   const createExp = () => {
     service
       .createExpense(form)
@@ -20,8 +21,7 @@ function CreateExpense(props) {
 
   return (
     <div className="form-group">
-      <form className="exp-form display" name="expense" onSubmit={createExp}>
-        <input type="hidden" name="expense" value="expense" />
+      <div className="exp-form display">
         <label>Name of expense:</label>
         <input
           type="text"
@@ -37,8 +37,10 @@ function CreateExpense(props) {
           onChange={e => handleInputs(e)}
         />
         <br />
-        <input type="submit" className="btn btn-success" value="Submit" />
-      </form>
+        <button onClick={createExp} className="btn btn-success">
+          Submit
+        </button>
+      </div>
     </div>
   );
 }
