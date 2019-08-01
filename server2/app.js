@@ -13,7 +13,10 @@ const session = require("express-session");
 const passport = require("passport");
 
 mongoose
-  .connect("mongodb://localhost/project-management", { useNewUrlParser: true })
+  .connect(
+    "mongodb+srv://bryanmej:Jackass123!@cluster0-0upwv.mongodb.net/test?retryWrites=true&w=majority",
+    { useNewUrlParser: true }
+  )
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -70,7 +73,7 @@ app.locals.title = "Express - Generated with IronGenerator";
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3001"]
+    origin: ["https://brave-meitner-ace637.netlify.com"]
   })
 );
 
