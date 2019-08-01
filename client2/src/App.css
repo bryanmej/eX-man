@@ -84,6 +84,10 @@ input[type="date"] {
   height: 430px;
 }
 
+.rem-table {
+  background: url("https://img.freepik.com/free-photo/white-crumpled-paper-texture-background_64749-706.jpg?size=626&ext=jpg");
+}
+
 .display {
   display: none;
 }

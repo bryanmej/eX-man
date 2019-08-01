@@ -48,7 +48,7 @@ function AllReminders() {
   });
 
   return (
-    <table className="table table-striped">
+    <table className="table table-striped rem-table">
       <tbody>
         <tr>
           <th className="pl-4" colSpan="2">
