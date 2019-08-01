@@ -36,7 +36,7 @@ function CreateReminder() {
           onChange={e => handleInputs(e)}
         />
         <br />
-        <button onSubmit={createRem} className="btn btn-success">
+        <button onClick={createRem} className="btn btn-success">
           Submit
         </button>
       </div>
