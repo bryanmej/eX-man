@@ -52,7 +52,7 @@ export default class Menu extends Component {
             <Link to="/profile" style={{ textDecoration: "none" }}>
               <span className="nav-item nav-link">Profile</span>
             </Link>
-            <Link to="/">
+            <Link to="/" style={{ textDecoration: "none" }}>
               <span className="nav-item nav-link" onClick={this.handleLogout}>
                 Logout
               </span>
