@@ -3,6 +3,7 @@ import axios from "axios";
 import CreateExpense from "./CreateExpense";
 import CreateReminder from "./CreateReminder";
 import AllReminders from "./AllReminders";
+import EditExpense from "./EditExpense";
 import "../App.css";
 
 function AllExpenses(props) {
@@ -11,7 +12,10 @@ function AllExpenses(props) {
   // Get all expenses
   useEffect(() => {
     axios
-      .get("https://exman007.herokuapp.com/expense")
+      .get(
+        "http://localhost:3000/expense"
+        //"https://exman007.herokuapp.com/expense"
+      )
       .then(({ data }) => {
         setExpenses(prevState => {
           return [...prevState, ...data.exps];
@@ -41,14 +45,31 @@ function AllExpenses(props) {
     return (
       <tr key={exps._id}>
         <td>{i + 1}</td>
-        <td>{exps.name}</td>
+        <td>
+          {exps.name}
+          <EditExpense id={exps._id} />
+        </td>
         <td>{exps.price}</td>
         <td>
           <button
             className="btn btn-outline-warning"
             onClick={() => {
+              document
+                .querySelector(`.editExp-form${exps._id}`)
+                .classList.toggle("display");
+            }}
+          >
+            Edit
+          </button>
+
+          <button
+            className="btn btn-outline-danger"
+            onClick={() => {
               axios
-                .delete(`https://exman007.herokuapp.com/expense/${exps._id}`)
+                .delete(
+                  `http://localhost:3000/expense/${exps._id}`
+                  // `https://exman007.herokuapp.com/expense/${exps._id}`
+                )
                 .then(({ data }) => {
                   setExpenses(prevState => {
                     return prevState.filter(e => e._id !== data.expense._id);
@@ -65,7 +86,7 @@ function AllExpenses(props) {
   });
 
   return (
-    <div>
+    <div className="content">
       <div className="jumbotron text-white">
         <h1 className="display-4">
           Your total for this month:

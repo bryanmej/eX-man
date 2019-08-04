@@ -37,7 +37,7 @@ div.jumbotron {
   background: #343a40;
   padding: 1% 2% 1% 1%;
   border-radius: 2em;
-  border: 2px solid rgb(0, 205, 0);
+  border: 2px solid #17a2b8;
 }
 
 div.form-group {
@@ -53,6 +53,11 @@ div.form-group {
 .rem-form {
   background: rgba(221, 221, 221, 0.6);
   padding: 3% 7%;
+}
+
+.edit {
+  display: flex;
+  flex-direction: column;
 }
 
 span.btn {
@@ -81,7 +86,7 @@ input[type="date"] {
 .col-md-7,
 .col-md-5 {
   overflow: scroll;
-  height: 430px;
+  height: 75vh;
 }
 
 .rem-table {
@@ -96,5 +101,10 @@ input[type="date"] {
   .total {
     display: block;
     width: 60%;
+  }
+
+  .col-md-7,
+  .col-md-5 {
+    height: inherit;
   }
 }

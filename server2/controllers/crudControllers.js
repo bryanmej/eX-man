@@ -3,6 +3,7 @@ const Reminder = require("../models/Reminder");
 
 // Expense
 
+// Create Expense
 exports.createExpense = (req, res, next) => {
   const { name, price } = req.body;
   const newExpense = new Expense({
@@ -21,12 +22,22 @@ exports.createExpense = (req, res, next) => {
     });
 };
 
+//Read Expense
 exports.getAllexpenses = (req, res, next) => {
   Expense.find()
     .then(exps => res.status(200).json({ exps }))
     .catch(err => res.status(500).json({ err }));
 };
 
+//Update Expense
+exports.updateExpense = (req, res, next) => {
+  const { id } = req.params;
+  Expense.findByIdAndUpdate(id, { ...req.body }, { new: true })
+    .then(expense => res.status(200).json({ expense }))
+    .catch(err => res.status(500).json({ err }));
+};
+
+//Delete Expense
 exports.deleteExpense = (req, res, next) => {
   const { id } = req.params;
   Expense.findByIdAndDelete(id)

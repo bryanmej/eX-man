@@ -7,7 +7,10 @@ function AllReminders() {
   // Get all reminders
   useEffect(() => {
     axios
-      .get("https://exman007.herokuapp.com/reminder")
+      .get(
+        "http://localhost:3000/reminder"
+        // "https://exman007.herokuapp.com/reminder"
+      )
       .then(({ data }) => {
         setReminders(prevState => {
           return [...prevState, ...data.rems];

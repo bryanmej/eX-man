@@ -14,10 +14,7 @@ const passport = require("passport");
 
 // Connection to Data Base
 mongoose
-  .connect(
-    "mongodb+srv://bryanmej:Jackass123!@cluster0-0upwv.mongodb.net/test?retryWrites=true&w=majority",
-    { useNewUrlParser: true }
-  )
+  .connect(process.env.DB, { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -52,7 +49,10 @@ app.use(passport.session());
 app.use(
   cors({
     credentials: true,
-    origin: ["https://brave-meitner-ace637.netlify.com"]
+    origin: [
+      "https://brave-meitner-ace637.netlify.com",
+      "http://localhost:3001"
+    ]
   })
 );
 
