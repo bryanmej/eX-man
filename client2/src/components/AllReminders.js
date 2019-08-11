@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import EditReminder from "./EditReminder";
 
 function AllReminders() {
   const [rems, setReminders] = useState([]);
@@ -29,13 +30,27 @@ function AllReminders() {
           {rems.date}
           <br />
           {rems.reminder}
+          <EditReminder id={rems._id} />
         </td>
         <td>
           <button
-            className="btn btn-outline-danger"
+            className="btn btn-warning"
+            onClick={() => {
+              document
+                .querySelector(`.editRem-form${rems._id}`)
+                .classList.toggle("display");
+            }}
+          >
+            Edit
+          </button>
+          <button
+            className="btn btn-danger"
             onClick={() => {
               axios
-                .delete(`https://exman007.herokuapp.com/reminder/${rems._id}`)
+                .delete(
+                  `http://localhost:3000/reminder/${rems._id}`
+                  //`https://exman007.herokuapp.com/reminder/${rems._id}`
+                )
                 .then(({ data }) => {
                   setReminders(prevState => {
                     return prevState.filter(e => e._id !== data.reminder._id);

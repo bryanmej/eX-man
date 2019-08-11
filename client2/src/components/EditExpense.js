@@ -17,13 +17,16 @@ function EditExpense({ id }) {
 
   return (
     <div>
-      <div className={`edit display editExp-form${id}`}>
+      <div className={`display editExp-form${id} editExpform`}>
         <label>Name:</label>
         <input type="text" name="name" onChange={e => handleInput(e)} />
         <br />
         <label>Amount:</label>
         <input type="number" name="price" onChange={e => handleInput(e)} />
-        <button onClick={updateExpense}>Update</button>
+        <br />
+        <button className="btn btn-dark" onClick={updateExpense}>
+          Update
+        </button>
       </div>
     </div>
   );

@@ -47,6 +47,7 @@ exports.deleteExpense = (req, res, next) => {
 
 //Reminder
 
+// Create Reminder
 exports.createReminder = (req, res, next) => {
   const { date, reminder } = req.body;
   const newReminder = new Reminder({
@@ -65,9 +66,18 @@ exports.createReminder = (req, res, next) => {
     });
 };
 
+// Read Reminder
 exports.getAllReminders = (req, res, next) => {
   Reminder.find()
     .then(rems => res.status(200).json({ rems }))
+    .catch(err => res.status(500).json({ err }));
+};
+
+// Update Reminder
+exports.updateReminder = (req, res, next) => {
+  const { id } = req.params;
+  Reminder.findByIdAndUpdate(id, { ...req.body }, { new: true })
+    .then(reminder => res.status(200).json({ reminder }))
     .catch(err => res.status(500).json({ err }));
 };
 

@@ -79,7 +79,7 @@ button.btn.btn-purple:hover {
   background: #5b34a4;
 }
 
-input[type="date"] {
+input.form-control.date {
   width: 20%;
 }
 
@@ -91,6 +91,22 @@ input[type="date"] {
 
 .rem-table {
   background: url("https://img.freepik.com/free-photo/white-crumpled-paper-texture-background_64749-706.jpg?size=626&ext=jpg");
+}
+
+.editExpform {
+  display: flex;
+  flex-direction: column;
+  background: rgba(221, 221, 221, 0.6);
+  padding: 5% 6% 8%;
+  margin-top: 2%;
+}
+
+.editRemForm {
+  display: flex;
+  flex-direction: column;
+  background: #343a407e;
+  padding: 5% 6% 8%;
+  margin-top: 2%;
 }
 
 .display {

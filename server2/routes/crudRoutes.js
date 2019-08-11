@@ -7,7 +7,8 @@ const {
   createReminder,
   getAllReminders,
   deleteReminder,
-  updateExpense
+  updateExpense,
+  updateReminder
 } = require("../controllers/crudControllers");
 
 //Expense
@@ -25,6 +26,8 @@ router.delete("/expense/:id", deleteExpense);
 router.post("/reminder", createReminder);
 
 router.get("/reminder", getAllReminders);
+
+router.patch("/reminder/:id", updateReminder);
 
 router.delete("/reminder/:id", deleteReminder);
 

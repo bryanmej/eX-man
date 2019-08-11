@@ -26,7 +26,7 @@ function CreateReminder() {
         <input
           type="date"
           name="date"
-          className="form-control"
+          className="form-control date"
           onChange={e => handleInputs(e)}
         />
         <label>Reminder/Comment</label>
