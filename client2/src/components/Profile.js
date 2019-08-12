@@ -107,9 +107,9 @@ function AllExpenses(props) {
         </button>
       </div>
 
-      <CreateExpense />
+      <CreateExpense toggle={toggle} />
 
-      <CreateReminder />
+      <CreateReminder toggle2={toggle2} />
 
       <div className="row">
         <div className="col-md-7 pr-0">

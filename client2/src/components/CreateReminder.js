@@ -3,7 +3,7 @@ import useForm from "./hooks/useForm";
 import AuthService from "./services/Service";
 import "../App.css";
 
-function CreateReminder() {
+function CreateReminder({ toggle2 }) {
   const service = new AuthService();
   const [form, handleInputs] = useForm();
 
@@ -22,7 +22,12 @@ function CreateReminder() {
   return (
     <div className="form-group">
       <div className="rem-form display">
-        <label>Date:</label>
+        <label style={{ display: "flex", justifyContent: "space-between" }}>
+          Date:
+          <span onClick={toggle2} className="hide">
+            Hide
+          </span>
+        </label>
         <input
           type="date"
           name="date"
