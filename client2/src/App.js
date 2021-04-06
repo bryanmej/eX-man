@@ -4,7 +4,6 @@ import Signup from "./components/Signup";
 import Navbar from "./components/Navbar";
 import "./App.css";
 import Home from "./components/Home";
-import "bootstrap/dist/css/bootstrap.css";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 
